@@ -43,29 +43,21 @@
 const usernameInput = document.getElementById("username");
 const saveButton = document.getElementById("save");
 const clearButton = document.getElementById("clear");
-const greetUsername = document.getElementById("greetUsername");
-const setStatus = document.getElementById("status");
 
 const savedUsername = localStorage.getItem("savedUsername");
-const savedStatus = localStorage.getItem("savedStatus");
+const greetUsername = document.getElementById("greetUsername");
 
 window.addEventListener("DOMContentLoaded", () => {
   if (savedUsername) {
     usernameInput.value = savedUsername;
     greetUsername.textContent = savedUsername;
   }
-
-  if (savedStatus) {
-    setStatus.value = savedStatus;
-  }
 });
 
 saveButton.addEventListener("click", function () {
   const username = usernameInput.value;
-  const status = setStatus.value;
 
   localStorage.setItem("savedUsername", username);
-  localStorage.setItem("savedStatus", status);
 
   greetUsername.textContent = username;
   usernameInput.value = "";
@@ -73,9 +65,7 @@ saveButton.addEventListener("click", function () {
 
 clearButton.addEventListener("click", function () {
   localStorage.removeItem("savedUsername");
-  localStorage.removeItem("savedStatus");
 
   usernameInput.value = "";
   greetUsername.textContent = "user";
-  setStatus.value = "online";
 });

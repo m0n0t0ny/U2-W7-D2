@@ -9,6 +9,10 @@ window.addEventListener("DOMContentLoaded", () => {
     };
   }
 
+  // toggleDarkButton.addEventListener("change", () => {
+  //   if (toggleDarkButton.classList.contains("dark"))
+  // })
+
   loadThemeStyle();
 });
 
