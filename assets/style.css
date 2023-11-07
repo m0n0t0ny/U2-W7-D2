@@ -1,0 +1,154 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  width: 100%;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+button,
+select,
+input[type="button"],
+input[type="submit"] {
+  cursor: pointer;
+}
+
+body {
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+  gap: 2rem;
+  border-bottom: 1px solid #333;
+  padding: 1rem 2rem;
+  max-width: 1400px;
+}
+
+header .light-box,
+header .username-box,
+header .status {
+  width: 33%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .light-box p:first-of-type {
+  color: #fff;
+}
+
+header .light-box p:last-of-type {
+  color: #121212;
+}
+
+header button {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 1rem;
+  background: #fff;
+  margin: 0 1rem;
+}
+
+#greetUsername {
+  background-color: #f7fb3d;
+  color: #333;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+header label {
+  margin-right: 1rem;
+}
+
+header select,
+header option {
+  height: 1.5rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 1rem 2rem;
+}
+
+form {
+  min-width: 300px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 5vmin 3vmin;
+}
+
+form h1 {
+  margin-bottom: 2vmin;
+}
+
+form img {
+  margin-bottom: 2vmin;
+}
+
+form input,
+form select {
+  width: 10rem;
+  height: 1.5rem;
+  text-align: center;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+form input[type="text"]::after {
+  content: "❌";
+}
+
+form input[type="submit"] {
+  font-weight: 600;
+  margin-top: 2rem;
+  height: 3rem;
+}
+
+/* * Media queries */
+
+/* @media screen and (min-width:576px) {
+} */
+
+/* @media screen and (min-width:768px) {
+} */
+
+/* @media screen and (min-width:992px) {
+} */
+
+/* @media screen and (min-width:1200px) {
+} */
+
+/* @media screen and (min-width:1400px) {
+} */
