@@ -1,34 +1,33 @@
-window.addEventListener("DOMContentLoaded", () => {
-  const html = document.documentElement;
-  const toggleDarkButton = document.getElementById("toggleDark");
+const html = document.documentElement;
+const toggleDarkButton = document.getElementById("toggle-theme");
 
-  if (toggleDarkButton) {
-    toggleDarkButton.onclick = function () {
-      html.classList.toggle("dark");
-      setDarkTheme(html.classList.contains("dark"));
-    };
-  }
-
-  // toggleDarkButton.addEventListener("change", () => {
-  //   if (toggleDarkButton.classList.contains("dark"))
-  // })
-
-  loadThemeStyle();
-});
-
-const loadThemeStyle = () => {
-  const html = document.documentElement;
-  const themeInStorage = localStorage.getItem("dark");
-
-  if (themeInStorage) {
-    html.classList.toggle("dark");
-  }
-};
-
-const setDarkTheme = (isDark) => {
+function setDarkTheme(isDark) {
   if (isDark) {
     localStorage.setItem("dark", "true");
   } else {
     localStorage.removeItem("dark");
   }
-};
+}
+
+function loadThemeStyle() {
+  const themeInStorage = localStorage.getItem("dark");
+  const isDark = themeInStorage === "true";
+
+  if (isDark) {
+    html.classList.add("dark");
+    toggleDarkButton.classList.add("bright");
+  } else {
+    html.classList.remove("dark");
+    toggleDarkButton.classList.remove("bright");
+  }
+}
+
+toggleDarkButton.addEventListener("click", () => {
+  const isDark = html.classList.toggle("dark");
+  setDarkTheme(isDark);
+  loadThemeStyle();
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadThemeStyle();
+});

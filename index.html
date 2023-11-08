@@ -45,51 +45,50 @@
       referrerpolicy="no-referrer"
     />
     <!-- stylesheets -->
-    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" as="style" href="./assets/style.css" />
   </head>
-
-  <!-- Crea un semplice form di registrazione con un input field in cui l’utente possa inserire il proprio nome.
-    A fianco di questo input field crea due pulsanti:
-    uno salverà il valore in localStorage,
-    uno rimuoverà il valore precedentemente salvato (se presente).
-    Mostra sopra l’input field il valore precedentemente salvato, se presente. -->
-
-  <!-- Crea un contatore che tenga conto del tempo che passa,
-    utilizzando sessionStorage.
-    Aggiornando la pagina il valore prosegue,
-    chiudendo la pagina - ovviamente - ricomincia.
-    Il valore del contatore deve aggiornarsi ad ogni secondo. -->
 
   <body>
     <header>
-      <div class="light-box">
-        <p>Turn ON</p>
-        <button type="button" id="toggleDark">💡</button>
-        <p>Turn OFF</p>
-      </div>
+      <div class="inner-header">
+        <div class="light-box">
+          <p>Turn ON</p>
+          <button type="button" id="toggle-theme">💡</button>
+          <p>Turn OFF</p>
+        </div>
 
-      <div class="username-box">
-        <p>Hi, <b id="greetUsername">user</b></p>
-      </div>
+        <div class="username-box">
+          <p>Hi, <b id="greetUsername">user</b></p>
+        </div>
 
-      <div class="status">
-        <label for="status">Appear:</label>
-        <select id="status" name="status">
-          <option value="online">🟢 Online</option>
-          <option value="offline">🔴 Offline</option>
-        </select>
+        <div class="status">
+          <label for="status">Appear</label>
+          <select id="status" name="status">
+            <option value="online">🟢 Online</option>
+            <option value="offline">🔴 Offline</option>
+          </select>
+        </div>
       </div>
     </header>
 
     <main>
       <form>
-        <h1>User settings ⚙</h1>
+        <h1>Settings</h1>
         <img
           src="./assets/favicon/android-chrome-192x192.png"
           alt=""
           width="50"
         />
-        <label for="username">Username:</label>
+        <input
+          type="file"
+          id="profile-image"
+          name="profile-image"
+          accept="image/*"
+        />
+        <div class="profile-pic-settings">
+          <label for="remove-pic">Profile image</label>
+          <input class="clear" type="button" id="remove-pic" value="⨉" />
+        </div>
         <input
           type="text"
           id="username"
@@ -97,16 +96,21 @@
           autocomplete="true"
           required
         />
-        <input type="button" id="clear" value="Forget username ❌" />
-
+        <div class="username-setting">
+          <label for="username">Username</label>
+          <input class="clear" type="button" id="clear" value="⨉" />
+        </div>
         <input type="submit" id="save" value="Save" />
       </form>
+      <div class="toast" id="toast-saved">Saved &#10003;</div>
+      <div class="toast" id="toast-deleted">Deleted &#10003;</div>
     </main>
 
     <footer>
-      <div id="upTime">0</div>
+      <div id="upTime"></div>
     </footer>
 
+    <script src="./javascript/toast.js"></script>
     <script src="./javascript/user-settings.js"></script>
     <script src="./javascript/dark-light.js"></script>
     <script src="./javascript/websotarge.js"></script>

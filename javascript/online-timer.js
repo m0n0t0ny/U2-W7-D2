@@ -1,26 +1,20 @@
-const upTime = document.getElementById("upTime");
+window.addEventListener("DOMContentLoaded", function () {
+  updateUpTime();
+});
 
 function updateUpTime() {
-  const currentTime = new Date().getTime();
-  console.log("currentTime:", currentTime);
-  let storedTime = JSON.parse(sessionStorage.getItem("onlineTime"));
-  console.log("storedTime:", storedTime);
+  const upTime = document.getElementById("upTime");
+  let storedTime = sessionStorage.getItem("counter");
 
   if (storedTime) {
-    storedTime = parseInt(storedTime);
+    storedTime = parseInt(storedTime, 10);
   } else {
-    storedTime = currentTime;
+    storedTime = 0;
   }
 
-  const seconds = Math.floor((currentTime - storedTime) / 1000);
-  console.log("seconds:", seconds);
-
-  if (upTime) {
-    upTime.innerText = `Uptime: ${seconds} seconds`;
-  }
-
-  sessionStorage.setItem("onlineTime", currentTime);
+  setInterval(() => {
+    storedTime++;
+    upTime.innerText = `🕔 ${storedTime}s`;
+    sessionStorage.setItem("counter", storedTime);
+  }, 1000);
 }
-
-updateUpTime();
-setInterval(updateUpTime, 1000);
